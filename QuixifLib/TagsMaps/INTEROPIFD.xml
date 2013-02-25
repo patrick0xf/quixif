@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <tags name="INTEROPIFD">
+    <tag id="0001"><![CDATA[InteroperabilityIndex]]></tag>
+	  <tag id="0002"><![CDATA[InteroperabilityVersion]]></tag> 
+    <tag id="1000"><![CDATA[RelatedImageFileFormat]]></tag>
+	  <tag id="1001"><![CDATA[RelatedImageWidth]]></tag> 
+    <tag id="1002"><![CDATA[RelatedImageLength]]></tag>    
+    <tag id="EA1C" ispadding="true"><![CDATA[Padding]]></tag>
+  </tags>
+</root>

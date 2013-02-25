@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <tags name="SUBIFD">
+    <tag id="829A"><![CDATA[ExposureTime]]></tag>
+    <tag id="829D"><![CDATA[FNumber]]></tag>
+    <tag id="8822"><![CDATA[ExposureProgram]]></tag>
+    <tag id="8824"><![CDATA[SpectralSensitivity]]></tag>
+    <tag id="8827"><![CDATA[ISOSpeedRatings	]]></tag>
+    <tag id="8828"><![CDATA[OECF]]></tag>
+    <tag id="9000"><![CDATA[ExifVersion]]></tag>
+    <tag id="9003"><![CDATA[DateTimeOriginal]]></tag>
+    <tag id="9004"><![CDATA[DateTimeDigitized]]></tag>
+    <tag id="9101"><![CDATA[ComponentsConfiguration]]></tag>
+    <tag id="9102"><![CDATA[CompressedBitsPerPixel]]></tag>
+    <tag id="9201"><![CDATA[ShutterSpeedValue]]></tag>
+    <tag id="9202"><![CDATA[ApertureValue]]></tag>
+    <tag id="9203"><![CDATA[BrightnessValue]]></tag>
+    <tag id="9204"><![CDATA[ExposureBiasValue]]></tag>
+    <tag id="9205"><![CDATA[MaxApertureValue]]></tag>
+    <tag id="9206"><![CDATA[SubjectDistance]]></tag>
+    <tag id="9207"><![CDATA[MeteringMode]]></tag>
+    <tag id="9208"><![CDATA[LightSource]]></tag>
+    <tag id="9209"><![CDATA[Flash]]></tag>
+    <tag id="920A"><![CDATA[FocalLength]]></tag>
+    <tag id="9214"><![CDATA[SubjectArea]]></tag>
+    <tag id="927C"><![CDATA[MakerNote]]></tag>
+    <tag id="9286"><![CDATA[UserComment]]></tag>
+    <tag id="9290"><![CDATA[SubSecTime]]></tag>
+    <tag id="9291"><![CDATA[SubSecTimeOriginal]]></tag>
+    <tag id="9292"><![CDATA[SubSecTimeDigitized]]></tag>
+    <tag id="A000"><![CDATA[FlashpixVersion]]></tag>
+    <tag id="A001"><![CDATA[ColorSpace]]></tag>
+    <tag id="A002"><![CDATA[PixelXDimension]]></tag>
+    <tag id="A003"><![CDATA[PixelYDimension]]></tag>
+    <tag id="A004"><![CDATA[RelatedSoundFile]]></tag>
+    <tag id="A005"><![CDATA[InteroperabilityTag]]></tag>
+    <tag id="A20B"><![CDATA[FlashEnergy]]></tag>
+    <tag id="A20C"><![CDATA[SpatialFrequencyResponse]]></tag>
+    <tag id="A20E"><![CDATA[FocalPlaneXResolution]]></tag>
+    <tag id="A20F"><![CDATA[FocalPlaneYResolution]]></tag>
+    <tag id="A210"><![CDATA[FocalPlaneResolutionUnit]]></tag>
+    <tag id="A214"><![CDATA[SubjectLocation]]></tag>
+    <tag id="A215"><![CDATA[ExposureIndex]]></tag>
+    <tag id="A217"><![CDATA[SensingMethod]]></tag>
+    <tag id="A300"><![CDATA[FileSource]]></tag>
+    <tag id="A301"><![CDATA[SceneType]]></tag>
+    <tag id="A302"><![CDATA[CFAPattern]]></tag>
+    <tag id="A401"><![CDATA[CustomRendered]]></tag>
+    <tag id="A402"><![CDATA[ExposureMode]]></tag>
+    <tag id="A403"><![CDATA[WhiteBalance]]></tag>
+    <tag id="A404"><![CDATA[DigitalZoomRatio]]></tag>
+    <tag id="A405"><![CDATA[FocalLengthIn35mmFilm]]></tag>
+    <tag id="A406"><![CDATA[SceneCaptureType]]></tag>
+    <tag id="A407"><![CDATA[GainControl]]></tag>
+    <tag id="A408"><![CDATA[Contrast]]></tag>
+    <tag id="A409"><![CDATA[Saturation]]></tag>
+    <tag id="A40A"><![CDATA[Sharpness]]></tag>
+    <tag id="A40B"><![CDATA[DeviceSettingDescription]]></tag>
+    <tag id="A40C"><![CDATA[SubjectDistanceRange]]></tag>
+    <tag id="A420"><![CDATA[ImageUniqueID]]></tag>
+    <tag id="EA1C" ispadding="true"><![CDATA[Padding]]></tag>
+  </tags>
+</root>

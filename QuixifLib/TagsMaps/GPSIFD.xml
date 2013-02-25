@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <tags name="GPSIFD">
+    <tag id="0000"><![CDATA[GPSVersionID]]></tag>
+    <tag id="0001"><![CDATA[GPSLatitudeRef]]></tag>
+    <tag id="0002"><![CDATA[GPSLatitude]]></tag>
+    <tag id="0003"><![CDATA[GPSLongitudeRef]]></tag>
+    <tag id="0004"><![CDATA[GPSLongitude]]></tag>
+    <tag id="0005"><![CDATA[GPSAltitudeRef]]></tag>
+    <tag id="0006"><![CDATA[GPSAltitude]]></tag>
+    <tag id="0007"><![CDATA[GPSTimeStamp]]></tag>
+    <tag id="0008"><![CDATA[GPSSatellites]]></tag>
+    <tag id="0009"><![CDATA[GPSStatus]]></tag>
+    <tag id="000A"><![CDATA[GPSMeasureMode]]></tag>
+    <tag id="000B"><![CDATA[GPSDOP]]></tag>
+    <tag id="000C"><![CDATA[GPSSpeedRef]]></tag>
+    <tag id="000D"><![CDATA[GPSSpeed]]></tag>
+    <tag id="000E"><![CDATA[GPSTrackRef]]></tag>
+    <tag id="000F"><![CDATA[GPSTrack]]></tag>
+    <tag id="0010"><![CDATA[GPSImgDirectionRef]]></tag>
+    <tag id="0011"><![CDATA[GPSImgDirection]]></tag>
+    <tag id="0012"><![CDATA[GPSMapDatum]]></tag>
+    <tag id="0013"><![CDATA[GPSDestLatitudeRef]]></tag>
+    <tag id="0014"><![CDATA[GPSDestLatitude]]></tag>
+    <tag id="0015"><![CDATA[GPSDestLongitudeRef]]></tag>
+    <tag id="0016"><![CDATA[GPSDestLongitude]]></tag>
+    <tag id="0017"><![CDATA[GPSDestBearingRef]]></tag>
+    <tag id="0018"><![CDATA[GPSDestBearing]]></tag>
+    <tag id="0019"><![CDATA[GPSDestDistanceRef]]></tag>
+    <tag id="001A"><![CDATA[GPSDestDistance]]></tag>
+    <tag id="001B"><![CDATA[GPSProcessingMethod]]></tag>
+    <tag id="001C"><![CDATA[GPSAreaInformation]]></tag>
+    <tag id="001D"><![CDATA[GPSDateStamp]]></tag>
+    <tag id="001E"><![CDATA[GPSDifferential]]></tag>
+    <tag id="001F"><![CDATA[GPSHPositioningError]]></tag>
+    <tag id="EA1C" ispadding="true"><![CDATA[Padding]]></tag>
+  </tags>
+</root>

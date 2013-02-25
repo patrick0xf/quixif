@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <tags name="IFD">
+    <tag id="0100"><![CDATA[ImageWidth]]></tag>
+    <tag id="0101"><![CDATA[ImageLength]]></tag>
+    <tag id="0102"><![CDATA[BitsPerSample]]></tag>
+    <tag id="0103"><![CDATA[Compression]]></tag>
+    <tag id="0106"><![CDATA[PhotometricInterpretation]]></tag>
+    <tag id="010E"><![CDATA[ImageDescription]]></tag>
+    <tag id="010F"><![CDATA[Make]]></tag>
+    <tag id="0110"><![CDATA[Model]]></tag>
+    <tag id="0111"><![CDATA[StripOffsets]]></tag>
+    <tag id="0112"><![CDATA[Orientation]]></tag>
+    <tag id="0115"><![CDATA[SamplesPerPixel]]></tag>
+    <tag id="0116"><![CDATA[RowsPerStrip]]></tag>
+    <tag id="0117"><![CDATA[StripByteCounts]]></tag>
+    <tag id="011A"><![CDATA[XResolution]]></tag>
+    <tag id="011B"><![CDATA[YResolution]]></tag>
+    <tag id="011C"><![CDATA[PlanarConfiguration]]></tag>
+    <tag id="0128"><![CDATA[ResolutionUnit]]></tag>
+    <tag id="0128"><![CDATA[TransferFunction]]></tag>
+    <tag id="0131"><![CDATA[Software]]></tag>
+    <tag id="0132"><![CDATA[DateTime]]></tag>
+    <tag id="013B"><![CDATA[Artist]]></tag>
+    <tag id="013E"><![CDATA[WhitePoint]]></tag>
+    <tag id="013F"><![CDATA[PrimaryChromaticities]]></tag>
+    <tag id="0201"><![CDATA[JpegIFOffset]]></tag>
+    <tag id="0202"><![CDATA[JpegIFByteCount]]></tag>
+    <tag id="0211"><![CDATA[YCbCrCoefficients ]]></tag>
+    <tag id="0212"><![CDATA[YCbCrSubSampling ]]></tag>
+    <tag id="0213"><![CDATA[YCbCrPositioning ]]></tag>
+    <tag id="0214"><![CDATA[ReferenceBlackWhite ]]></tag>
+    <tag id="4746"><![CDATA[Rating]]></tag>
+    <tag id="4749"><![CDATA[RatingPercent]]></tag>
+    <tag id="8769" isoffset="true" offsetname="SUBIFD"><![CDATA[SUBIFDOffset]]></tag>
+    <tag id="8825" isoffset="true" offsetname="GPSIFD"><![CDATA[GPSIFDOffset]]></tag>
+    <tag id="8298"><![CDATA[Copyright]]></tag>
+    <tag id="9C9B"><![CDATA[MicrosftWindowsTitle]]></tag>
+    <tag id="9C9C"><![CDATA[MicrosftWindowsComment]]></tag>
+    <tag id="9C9D"><![CDATA[MicrosftWindowsAuthor]]></tag>
+    <tag id="9C9D"><![CDATA[MicrosftWindowsKeywords]]></tag>
+    <tag id="9C9D"><![CDATA[MicrosftWindowsSubject]]></tag>
+    <tag id="EA1C" ispadding="true"><![CDATA[Padding]]></tag>
+  </tags>
+</root>
