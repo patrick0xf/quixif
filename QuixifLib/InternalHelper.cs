@@ -1,4 +1,5 @@
 #region MIT License
+
 // Copyright (c) 2013 Patrick Fournier
 // patrick0xf@thunderground.net
 // 
@@ -24,7 +25,9 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 #endregion
+
 using System;
 using System.Globalization;
 using System.Linq;
@@ -32,60 +35,60 @@ using System.Text;
 
 namespace QuixifLib
 {
-	internal static class InternalHelper
-	{
-		internal static string ToHexNumber(this byte[] ba)
-		{
-		    return ba != null ? string.Concat(ConvertAll(ba, x => x.ToString("X2"))) : null;
-		}
+    internal static class InternalHelper
+    {
+        internal static string ToHexNumber(this byte[] ba)
+        {
+            return ba != null ? string.Concat(ConvertAll(ba, x => x.ToString("X2"))) : null;
+        }
 
-	    internal static string ToHexNumber(this byte b)
-		{
-			return b.ToString("X2");
-		}
+        internal static string ToHexNumber(this byte b)
+        {
+            return b.ToString("X2");
+        }
 
         internal static int ToInteger(this byte[] ba)
         {
             return ba != null ? Int32.Parse(ba.ToHexNumber(), NumberStyles.HexNumber) : default(int);
         }
 
-	    internal static short ToShort(this byte[] ba)
-	    {
-	        return ba != null ? Int16.Parse(ba.ToHexNumber(), NumberStyles.HexNumber) : default(short);
-	    }
+        internal static short ToShort(this byte[] ba)
+        {
+            return ba != null ? Int16.Parse(ba.ToHexNumber(), NumberStyles.HexNumber) : default(short);
+        }
 
-	    internal static long ToLong(this byte[] ba)
-	    {
-	        return ba != null ? Int64.Parse(ba.ToHexNumber(), NumberStyles.HexNumber) : default(long);
-	    }
+        internal static long ToLong(this byte[] ba)
+        {
+            return ba != null ? Int64.Parse(ba.ToHexNumber(), NumberStyles.HexNumber) : default(long);
+        }
 
-	    internal static string ToAsciiString(this byte[] ba)
-	    {
-	        return ba != null ? Encoding.UTF8.GetString(ba, 0, ba.Length) : default(string);
-	    }
+        internal static string ToAsciiString(this byte[] ba)
+        {
+            return ba != null ? Encoding.UTF8.GetString(ba, 0, ba.Length) : default(string);
+        }
 
-	    internal static byte[] ToSubByteArray(this byte[] ba, int offset, int count)
-	    {
-	        if (ba == null) return null;
+        internal static byte[] ToSubByteArray(this byte[] ba, int offset, int count)
+        {
+            if (ba == null) return null;
 
-			if(offset + count > ba.Length)
-			{
-				return new byte[]{};
-			}
-		    var sba = new byte[count];
-		    Array.Copy(ba, offset, sba, 0, count);
-		    return sba;
-		}
+            if (offset + count > ba.Length)
+            {
+                return new byte[] {};
+            }
+            var sba = new byte[count];
+            Array.Copy(ba, offset, sba, 0, count);
+            return sba;
+        }
 
         internal static byte[] GetAlignedData(byte[] data, bool isIntelAlign)
         {
             if (data == null) return null;
-		    return isIntelAlign ? data.Reverse().ToArray() : data;
-		}
+            return isIntelAlign ? data.Reverse().ToArray() : data;
+        }
 
         internal static TOutput[] ConvertAll<TInput, TOutput>(TInput[] array, Converter<TInput, TOutput> converter)
         {
             return array == null ? null : (from item in array select converter(item)).ToArray();
         }
-	}
+    }
 }

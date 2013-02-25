@@ -8,7 +8,7 @@ namespace Sample.Console
 {
     public partial class Program
     {
-        static void Main()
+        private static void Main()
         {
             System.Console.WriteLine("Example usage of the Quixif Fast Exif reader library");
 
@@ -24,7 +24,7 @@ namespace Sample.Console
                     if (readKey.Key == ConsoleKey.R) isRemote = true;
                 }
 
-                var resourceLocation = (bool)isRemote ? GetDefaultWebSite() : GetDefaultSampleImage();
+                var resourceLocation = (bool) isRemote ? GetDefaultWebSite() : GetDefaultSampleImage();
                 System.Console.WriteLine();
                 System.Console.WriteLine("Specify a location, or skip to use default");
                 System.Console.WriteLine("Default is {0}", resourceLocation);
@@ -77,7 +77,6 @@ namespace Sample.Console
                 else
                 {
                     System.Console.WriteLine("Exif data markers not found");
-
                 }
 
                 System.Console.WriteLine();

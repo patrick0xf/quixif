@@ -46,7 +46,7 @@ namespace Sample.WP8
             else
             {
                 MessageBox.Show("No Exif Data", "Quikxif", MessageBoxButton.OK);
-            }    
+            }
         }
     }
 }

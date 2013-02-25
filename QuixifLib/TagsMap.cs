@@ -1,4 +1,5 @@
 ﻿#region MIT License
+
 // Copyright (c) 2013 Patrick Fournier
 // patrick0xf@thunderground.net
 // 
@@ -24,7 +25,9 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 #endregion
+
 using System;
 using System.IO;
 using System.Reflection;
@@ -57,11 +60,11 @@ namespace QuixifLib
 
         public TagsMap(Stream stream)
         {
-            var xmlSerializer = new XmlSerializer(typeof(TagsMapRoot));
+            var xmlSerializer = new XmlSerializer(typeof (TagsMapRoot));
             TagsMap tags;
             using (var reader = XmlReader.Create(stream))
             {
-                var root = (TagsMapRoot)xmlSerializer.Deserialize(reader);
+                var root = (TagsMapRoot) xmlSerializer.Deserialize(reader);
                 tags = root.TagsMap;
             }
             Tags = tags.Tags;
@@ -71,9 +74,9 @@ namespace QuixifLib
         public static TagsMap GetTagsMapByName(string name)
         {
             var tagsMapResourceLocator = String.Format("{0}.TagsMaps.{1}.xml", GetLibraryName(), name);
-            return !Assembly.GetExecutingAssembly().GetManifestResourceNames().Contains(tagsMapResourceLocator) ? 
-                new TagsMap() : 
-                new TagsMap(Assembly.GetExecutingAssembly().GetManifestResourceStream(tagsMapResourceLocator));
+            return !Assembly.GetExecutingAssembly().GetManifestResourceNames().Contains(tagsMapResourceLocator) ?
+                       new TagsMap() :
+                       new TagsMap(Assembly.GetExecutingAssembly().GetManifestResourceStream(tagsMapResourceLocator));
         }
 
         public static string GetLibraryName()

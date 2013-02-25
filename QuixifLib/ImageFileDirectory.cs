@@ -1,4 +1,5 @@
 #region MIT License
+
 // Copyright (c) 2013 Patrick Fournier
 // patrick0xf@thunderground.net
 // 
@@ -24,7 +25,9 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 #endregion
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,51 +35,51 @@ using System.Linq;
 
 namespace QuixifLib
 {
-	public class ImageFileDirectory : IEnumerable
-	{
+    public class ImageFileDirectory : IEnumerable
+    {
         private const string COMPRESSION_HEX = "0103";
         private const string THUMBNAIL_OFFSET = "0201";
         private const string THUMBNAIL_LENGTH = "0202";
         private const int JPEG_COMPRESSION = 6;
         private const int TIFFHEADER_OFFSET = 8;
-		private const int DIRECTORYENTRY_FIELDLENGTH = 12;
+        private const int DIRECTORYENTRY_FIELDLENGTH = 12;
         private const int COUNTENTRY_FIELDLENGTH = 2;
         private const int NEXTENTRY_FIELDLENGTH = 4;
-		
-		internal int NextIfdOffset { get; private set; }
 
-		public List<ImageFileDirectoryEntry> Entries { get; private set; }
-		public byte[] ThumbnailData { get; private set; }
+        internal int NextIfdOffset { get; private set; }
+
+        public List<ImageFileDirectoryEntry> Entries { get; private set; }
+        public byte[] ThumbnailData { get; private set; }
         public string Name { get; private set; }
 
         public ImageFileDirectoryEntry this[int index]
         {
             get { return Entries[index]; }
         }
-		
-		internal ImageFileDirectory(byte[] exifData, int offset, bool isIntelAlign, TagsMap tagsMap, bool readThumbnails, int? ifd=null)
-		{
-		    Name = String.Format("{0}{1}", tagsMap.Name, ifd);
 
-			var entries = new List<ImageFileDirectoryEntry>();
-			
-			var entryCount = InternalHelper.GetAlignedData(exifData.ToSubByteArray(offset, COUNTENTRY_FIELDLENGTH), isIntelAlign).ToInteger();
-			
-			for(var entryIndex = 0; entryIndex < entryCount; entryIndex++)
-			{
-                entries.Add(new ImageFileDirectoryEntry(exifData.ToSubByteArray((offset + COUNTENTRY_FIELDLENGTH) + (DIRECTORYENTRY_FIELDLENGTH * entryIndex), DIRECTORYENTRY_FIELDLENGTH), exifData, isIntelAlign, tagsMap));
-			}
-			
-			NextIfdOffset = InternalHelper.GetAlignedData(exifData.ToSubByteArray( (offset+COUNTENTRY_FIELDLENGTH)  + (DIRECTORYENTRY_FIELDLENGTH*entryCount), NEXTENTRY_FIELDLENGTH), isIntelAlign).ToInteger();
-			Entries = entries;
+        internal ImageFileDirectory(byte[] exifData, int offset, bool isIntelAlign, TagsMap tagsMap, bool readThumbnails, int? ifd = null)
+        {
+            Name = String.Format("{0}{1}", tagsMap.Name, ifd);
+
+            var entries = new List<ImageFileDirectoryEntry>();
+
+            var entryCount = InternalHelper.GetAlignedData(exifData.ToSubByteArray(offset, COUNTENTRY_FIELDLENGTH), isIntelAlign).ToInteger();
+
+            for (var entryIndex = 0; entryIndex < entryCount; entryIndex++)
+            {
+                entries.Add(new ImageFileDirectoryEntry(exifData.ToSubByteArray((offset + COUNTENTRY_FIELDLENGTH) + (DIRECTORYENTRY_FIELDLENGTH*entryIndex), DIRECTORYENTRY_FIELDLENGTH), exifData, isIntelAlign, tagsMap));
+            }
+
+            NextIfdOffset = InternalHelper.GetAlignedData(exifData.ToSubByteArray((offset + COUNTENTRY_FIELDLENGTH) + (DIRECTORYENTRY_FIELDLENGTH*entryCount), NEXTENTRY_FIELDLENGTH), isIntelAlign).ToInteger();
+            Entries = entries;
 
             if (readThumbnails) PopulateThumbnailData(exifData);
-		}
-		
-		private void SetThumbnailData(byte[] thumbnailData)
-		{
-			ThumbnailData = thumbnailData;
-		}
+        }
+
+        private void SetThumbnailData(byte[] thumbnailData)
+        {
+            ThumbnailData = thumbnailData;
+        }
 
         private void PopulateThumbnailData(byte[] exifData)
         {
@@ -93,10 +96,9 @@ namespace QuixifLib
             SetThumbnailData(jpegData);
         }
 
-	    public IEnumerator GetEnumerator()
-	    {
-	        return Entries.GetEnumerator();
-	    }
-	}
+        public IEnumerator GetEnumerator()
+        {
+            return Entries.GetEnumerator();
+        }
+    }
 }
-

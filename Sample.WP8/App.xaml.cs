@@ -45,7 +45,9 @@ namespace Sample.WP8
         {
             RootFrame.Navigated -= ClearBackStackAfterReset;
             if (e.NavigationMode != NavigationMode.New && e.NavigationMode != NavigationMode.Refresh) return;
-            while (RootFrame.RemoveBackEntry() != null) {}
+            while (RootFrame.RemoveBackEntry() != null)
+            {
+            }
         }
 
         #endregion

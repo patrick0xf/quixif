@@ -1,4 +1,5 @@
 #region MIT License
+
 // Copyright (c) 2013 Patrick Fournier
 // patrick0xf@thunderground.net
 // 
@@ -24,37 +25,39 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 #endregion
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace QuixifLib
 {
-	public partial class Exif
-	{
+    public partial class Exif
+    {
         public byte[] RawData { get; private set; }
         public bool IsValid { get; private set; }
         public List<ImageFileDirectory> ImageFileDirectories { get; private set; }
 
-		private const int TIFFHEADER_OFFSET = 8;
-		private const string EXIFHEADER_VALUE = "Exif\0\0";
-		private const string TAGMARK_HEX = "002A";
-		private const string INTELALIGN_HEX = "4949";
-		private const int SIZE_OFFSET = 0;
-		private const int SIZE_LENGTH = 2;
-		private const int EXIFHEADER_OFFSET = 2;
-		private const int EXIFHEADER_LENGTH = 6;
-		private const int INTELALIGN_OFFSET = 8;
-		private const int INTELALIGN_LENGTH = 2;
-		private const int TAGMARK_OFFSET = 10;
-		private const int TAGMARK_LENGTH = 2;
-		private const int IFDOFFSET_OFFSET = 12;
-		private const int IFDOFFSET_LENGTH = 4;
+        private const int TIFFHEADER_OFFSET = 8;
+        private const string EXIFHEADER_VALUE = "Exif\0\0";
+        private const string TAGMARK_HEX = "002A";
+        private const string INTELALIGN_HEX = "4949";
+        private const int SIZE_OFFSET = 0;
+        private const int SIZE_LENGTH = 2;
+        private const int EXIFHEADER_OFFSET = 2;
+        private const int EXIFHEADER_LENGTH = 6;
+        private const int INTELALIGN_OFFSET = 8;
+        private const int INTELALIGN_LENGTH = 2;
+        private const int TAGMARK_OFFSET = 10;
+        private const int TAGMARK_LENGTH = 2;
+        private const int IFDOFFSET_OFFSET = 12;
+        private const int IFDOFFSET_LENGTH = 4;
 
-		private readonly bool _alignment;
+        private readonly bool _alignment;
 
-	    private static readonly TagsMap IfdTagsMap = TagsMap.GetTagsMapByName("IFD");
+        private static readonly TagsMap IfdTagsMap = TagsMap.GetTagsMapByName("IFD");
 
         /// <summary>
         /// Creates an Exif object containing the Exif Data entries for a given data segment
@@ -62,8 +65,8 @@ namespace QuixifLib
         /// <param name="data">A complete Exif data segment</param>
         /// <param name="readThubmails">Specifies whether the ThumbnailData property should be populated while reading the stream</param>
         public Exif(byte[] data, bool readThubmails = true)
-		{
-		    if (data == null) return;
+        {
+            if (data == null) return;
             ImageFileDirectories = new List<ImageFileDirectory>();
 
             try
@@ -74,14 +77,14 @@ namespace QuixifLib
                 if (GetHeader() != EXIFHEADER_VALUE) return; // Invalid Header
                 _alignment = IsIntelAlign();
                 if (GetTagMark().ToHexNumber() != TAGMARK_HEX) return; // Invalid alignment
-                
+
                 var currentIfdOffset = GetFirstIfdOffset();
                 var currentIfd = 0;
 
                 while (currentIfdOffset != 0)
                 {
                     var imageFileDirectory = new ImageFileDirectory(RawData, currentIfdOffset + TIFFHEADER_OFFSET, _alignment, IfdTagsMap, readThubmails, currentIfd++);
-                    
+
                     ImageFileDirectories.Add(imageFileDirectory);
                     ProcessSubDirectories(imageFileDirectory, readThubmails);
 
@@ -95,7 +98,7 @@ namespace QuixifLib
                 //Eventually get rid if this catch
                 IsValid = false;
             }
-		}
+        }
 
         private void ProcessSubDirectories(ImageFileDirectory imageFileDirectory, bool readThubmails)
         {
@@ -113,30 +116,30 @@ namespace QuixifLib
                 ProcessSubDirectories(offsetImageFileDirectory, readThubmails);
             }
         }
-		
-		private int GetSize()
-		{
-			return RawData.ToSubByteArray(SIZE_OFFSET, SIZE_LENGTH).ToInteger();
-		}
-		
-		private string GetHeader()
-		{
-			return RawData.ToSubByteArray(EXIFHEADER_OFFSET,EXIFHEADER_LENGTH).ToAsciiString();
-		}
-		
-		private bool IsIntelAlign()
-		{
-			return RawData.ToSubByteArray(INTELALIGN_OFFSET,INTELALIGN_LENGTH).ToHexNumber() == INTELALIGN_HEX;
-		}
+
+        private int GetSize()
+        {
+            return RawData.ToSubByteArray(SIZE_OFFSET, SIZE_LENGTH).ToInteger();
+        }
+
+        private string GetHeader()
+        {
+            return RawData.ToSubByteArray(EXIFHEADER_OFFSET, EXIFHEADER_LENGTH).ToAsciiString();
+        }
+
+        private bool IsIntelAlign()
+        {
+            return RawData.ToSubByteArray(INTELALIGN_OFFSET, INTELALIGN_LENGTH).ToHexNumber() == INTELALIGN_HEX;
+        }
 
         private byte[] GetTagMark()
-		{
-			return InternalHelper.GetAlignedData(RawData.ToSubByteArray(TAGMARK_OFFSET, TAGMARK_LENGTH), _alignment);
-		}
+        {
+            return InternalHelper.GetAlignedData(RawData.ToSubByteArray(TAGMARK_OFFSET, TAGMARK_LENGTH), _alignment);
+        }
 
         private int GetFirstIfdOffset()
-		{
-			return InternalHelper.GetAlignedData(RawData.ToSubByteArray(IFDOFFSET_OFFSET,IFDOFFSET_LENGTH), _alignment).ToInteger();
-		}
-	}
+        {
+            return InternalHelper.GetAlignedData(RawData.ToSubByteArray(IFDOFFSET_OFFSET, IFDOFFSET_LENGTH), _alignment).ToInteger();
+        }
+    }
 }

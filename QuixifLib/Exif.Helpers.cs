@@ -1,4 +1,5 @@
 ﻿#region MIT License
+
 // Copyright (c) 2013 Patrick Fournier
 // patrick0xf@thunderground.net
 // 
@@ -24,7 +25,9 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 #endregion
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -47,7 +50,7 @@ namespace QuixifLib
             if (stream != null)
             {
                 maximumHeaderLength = Math.Max(maximumHeaderLength, 2); // shouldn't be less than 2
-                
+
                 var b = new byte[2];
                 var bytesReadCount = stream.Read(b, 0, 2);
                 if (b[0].Equals(Markers.MARKER_) && b[1].Equals(Markers.MARKER_SOI))
@@ -95,10 +98,10 @@ namespace QuixifLib
 
             if (imageFileDirectoryEntry.IsArray && displayValue != null)
             {
-                var values = new string[((Array)displayValue).Length];
+                var values = new string[((Array) displayValue).Length];
                 for (var index = 0; index < values.Length; index++)
                 {
-                    values[index] = ((Array)displayValue).GetValue(index).ToString();
+                    values[index] = ((Array) displayValue).GetValue(index).ToString();
                 }
                 displayValue = String.Join(",", values);
             }
